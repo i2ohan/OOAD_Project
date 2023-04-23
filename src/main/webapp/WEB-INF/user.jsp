@@ -72,34 +72,53 @@
     <p>Welcome, ${sessionScope.username }</p>
     <button onclick="createObject()">Get details</button>
     <a href="${pageContext.request.contextPath }/logout">Logout</a>
-    <p>Enter User ID:</p>
-     <input type="number" id="userIdInput" name="userId">
+  
+    
+    
+       
     <p>Here's your details:</p>
     <h1>Driver Details:</h1>
-    <h2>Name: Ramu</h2>
-    <h2>Ph.No: 12245</h2>
-    <h1>Type of waste: WET</h1>
+    <h2 id="name"></h2>
+    <h2 id="ph_no"></h2>
+    <h2 id="typeOfWaste"></h1>
+    <h1>Dumpyard Details:</h1>
     <p id="distances"></p>
+    
+    
   <script>
-    var userId = document.getElementById('userIdInput').innerHtml;
-    var isDetailsDisplayed = false;
+   var isDetailsDisplayed =False;
+  
     function createObject() {
         if (isDetailsDisplayed) {
             return;
         }
-        var param2 = 123;
+       
 
         <% 
             Route route = new Route();
             route.getRoute();
-            //int userIdInt = Integer.parseInt(request.getParameter("userId")); // parse the user ID from the JSP request
+          int house =1;
             int[] distances = Route.distances; // Get the distances array from the Route class
             int[] nearestSources = Route.nearestSources;
             for (int i = 1; i < distances.length; i++) {
                  // use the parsed user ID in the for loop
-                    out.println("document.getElementById('distances').innerHTML += '<p>Distance from sources to " + i + " is " + distances[i] +" nearest source is "+nearestSources[i]+ "</p>';");
+                    out.println("document.getElementById('distances').innerHTML += '<p>Distance from dumpyard to house " + i + " is " + distances[i] +" and the nearest dumpyard is "+nearestSources[i]+ "</p>';");
                 
             }
+            if(nearestSources[house]==5){
+             out.println("document.getElementById('name').innerHTML += '<h2>Ramu</h2>';");
+             out.println("document.getElementById('ph_no').innerHTML += '<h2>123456</h2>';");
+             out.println("document.getElementById('typeOfWaste').innerHTML += '<h2>Type of Waste=WET </h2>';");
+             
+            }
+            else if(nearestSources[house]==1)
+            {
+             out.println("document.getElementById('name').innerHTML += '<h2>Sham</h2>';");
+             out.println("document.getElementById('ph_no').innerHTML += '<h2>1234567</h2>';");
+             out.println("document.getElementById('typeOfWaste').innerHTML += '<h2>Type of Waste=DRY </h2>';");
+             
+            }
+            
         %>
 
         isDetailsDisplayed = true;
