@@ -120,8 +120,9 @@ hr {
 <body style="background-color: powderblue">
 <form action="addUser" style="border:1px solid #ccc" method="post">
   <div class="container">
-    <h1>Sign Up</h1>
+    <h2>Sign Up</h2>
     <p>Please fill in this form to create an account.</p>
+    
     <hr>
 
     <label for="fname"><b> Name</b></label>

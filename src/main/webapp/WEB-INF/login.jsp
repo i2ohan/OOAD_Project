@@ -7,42 +7,77 @@
 <title>Login Page</title>
 
 <style>  
-h3{
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: powderblue;
+}
+
+h3 {
   font-family: Calibri; 
   font-size: 25pt;         
   font-style: normal; 
   font-weight: bold; 
-  color:SlateBlue;
+  color: SlateBlue;
   text-align: center; 
-  text-decoration: underline
+  text-decoration: underline;
 }
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
 
+form {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: SlateBlue;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #4B0082;
+}
 </style> 
 </head>
-<body style="background-color: powderblue">
+<body>
 
 <h3>Login Page</h3>
 
-	${error}
-	<form method="post" action="${pageContext.request.contextPath }/login">
-		
-		<table border="0" cellpadding="2" cellspacing="2">
-			<tr>
-				<td>UserName(E-mail)</td>
-				<td><input type="text" name="username"></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="password"></td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td><input type="submit" value="Login"></td>
-			</tr>
-		</table>
-	</form>
+${error}
+<form method="post" action="${pageContext.request.contextPath }/login">
+  <label for="username">Username (E-mail)</label>
+  <input type="text" name="username" id="username" required>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" required>
+
+  <input type="submit" value="Login">
+</form>
 
 </body>
 </html>
