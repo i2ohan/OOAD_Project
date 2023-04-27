@@ -68,63 +68,16 @@
             response.sendRedirect("/login");
         }
     %>
-    
-    <p>Welcome, ${sessionScope.username }</p>
-    <button onclick="createObject()">Get details</button>
-    <a href="${pageContext.request.contextPath }/logout">Logout</a>
-  
-    
-    
-       
-    <p>Here's your details:</p>
-    <h1>Driver Details:</h1>
-    <h2 id="name"></h2>
-    <h2 id="ph_no"></h2>
-    <h2 id="typeOfWaste"></h1>
-    <h1>Dumpyard Details:</h1>
-    <p id="distances"></p>
-    
-    
-  <script>
-   var isDetailsDisplayed =False;
-  
-    function createObject() {
-        if (isDetailsDisplayed) {
-            return;
-        }
-       
+    <form action="/display" method="post">
+  <label for="name">Enter your house number:</label>
+  <input type="text" id="name" name="name">
+  <br>
+  <br>
+  	
+  <button type="submit">Submit</button>
+</form>
 
-        <% 
-            Route route = new Route();
-            route.getRoute();
-          int house =1;
-            int[] distances = Route.distances; // Get the distances array from the Route class
-            int[] nearestSources = Route.nearestSources;
-            for (int i = 1; i < distances.length; i++) {
-                 // use the parsed user ID in the for loop
-                    out.println("document.getElementById('distances').innerHTML += '<p>Distance from dumpyard to house " + i + " is " + distances[i] +" and the nearest dumpyard is "+nearestSources[i]+ "</p>';");
-                
-            }
-            if(nearestSources[house]==5){
-             out.println("document.getElementById('name').innerHTML += '<h2>Ramu</h2>';");
-             out.println("document.getElementById('ph_no').innerHTML += '<h2>123456</h2>';");
-             out.println("document.getElementById('typeOfWaste').innerHTML += '<h2>Type of Waste=WET </h2>';");
-             
-            }
-            else if(nearestSources[house]==1)
-            {
-             out.println("document.getElementById('name').innerHTML += '<h2>Sham</h2>';");
-             out.println("document.getElementById('ph_no').innerHTML += '<h2>1234567</h2>';");
-             out.println("document.getElementById('typeOfWaste').innerHTML += '<h2>Type of Waste=DRY </h2>';");
-             
-            }
-            
-        %>
-
-        isDetailsDisplayed = true;
-    }
-</script>
-
+    
 
 
 </body>

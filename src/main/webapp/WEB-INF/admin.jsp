@@ -72,7 +72,7 @@ a:hover {
 		%>
 		<p>Welcome, ${sessionScope.username }</p>
 		 <button onclick="createObject()">Get details</button>
-		<a href="${pageContext.request.contextPath }/logout">Logout</a>
+		<a href="${pageContext.request.contextPath }/logout"><button>Logout</button></a>
 		 <p id="distances"></p>
 	</div>
 	

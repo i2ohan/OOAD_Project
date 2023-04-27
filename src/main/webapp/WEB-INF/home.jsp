@@ -11,9 +11,9 @@ h3{
   font-size: 25pt;         
   font-style: normal; 
   font-weight: bold; 
-  color:black;
+  color:SlateBlue;
   text-align: center; 
-  text-decoration: underline
+  text-decoration: underline;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -23,23 +23,17 @@ body {
 a {
   text-decoration: none;
 }
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  width: 200px;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 5px;
-}
-button:hover {
-  background-color: #3e8e41;
-  cursor: pointer;
-}
+ button {
+    font-size: 16pt;
+    font-weight: bold;
+    background-color: SlateBlue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
 </style>  
 </head>
 <body>
