@@ -37,8 +37,8 @@ a {
 </style>  
 </head>
 <body>
-<h3>WELCOME TO WASTE MANAGEMENT SYSTEM</h3>
 
+<h3>WELCOME TO WASTE MANAGEMENT SYSTEM</h3>
 <a href="signup"><button>Sign Up</button></a>
 <a href="login"><button>Login</button></a>
 

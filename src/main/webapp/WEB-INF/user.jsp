@@ -1,3 +1,7 @@
+
+//This page is rendered to accept the house number from the user.
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 
@@ -53,7 +57,7 @@
         p {
             font-size: 14pt;
         }
-
+s
         #distances {
             margin-top: 20px;
         }

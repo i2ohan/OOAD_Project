@@ -117,13 +117,16 @@
     <%
     
     		String name = (String) request.getAttribute("name");      
-            Route route = new Route();
+            Route route = Route.getInstance();
             route.getRoute();
             int house= Integer.parseInt(name);
-            int[] distances = Route.distances; // Get the distances array from the Route class
-            int[] nearestSources = Route.nearestSources;
+            int[] distances = route.getDistances(); // Get the distances array from the Route class
+            int[] nearestSources = route.getNearestSource();
+            
+            
+            
             for (int i = 1; i < distances.length; i++) {
-                
+                //display only the details corresponding to the house number entered by the user.
                  if(i == house)
                  {
                     out.println("document.getElementById('distances').innerHTML += '<p>Distance from dumpyard to house " + i + " is " + distances[i] +" and the nearest dumpyard is "+nearestSources[i]+ "</p>';");
@@ -133,16 +136,23 @@
                 
             }
             if(nearestSources[house]==5){
-             out.println("document.getElementById('name').innerHTML += '<h3>Ramu</h3>';");
-             out.println("document.getElementById('ph_no').innerHTML += '<h3>123456</h3>';");
+             out.println("document.getElementById('name').innerHTML += '<h3>Name: Ramu</h3>';");
+             out.println("document.getElementById('ph_no').innerHTML += '<h3>+91 9568712560</h3>';");
              out.println("document.getElementById('typeOfWaste').innerHTML += '<h3>Type of Waste=WET </h3>';");
              
             }
             else if(nearestSources[house]==1)
             {
-             out.println("document.getElementById('name').innerHTML += '<h3>Sham</h3>';");
-             out.println("document.getElementById('ph_no').innerHTML += '<h3>1234567</h3>';");
+             out.println("document.getElementById('name').innerHTML += '<h3>Name: Sham</h3>';");
+             out.println("document.getElementById('ph_no').innerHTML += '<h3>+91 7895412430</h3>';");
              out.println("document.getElementById('typeOfWaste').innerHTML += '<h3>Type of Waste=DRY </h3>';");
+             
+            }
+            else if(nearestSources[house]==7)
+            {
+             out.println("document.getElementById('name').innerHTML += '<h3>Name: Hari</h3>';");
+             out.println("document.getElementById('ph_no').innerHTML += '<h3>+91 9031649632</h3>';");
+             out.println("document.getElementById('typeOfWaste').innerHTML += '<h3>Type of Waste=E-Waste </h3>';");
              
             }
             

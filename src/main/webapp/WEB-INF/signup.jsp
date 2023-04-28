@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Sign in </title>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -125,8 +125,11 @@ hr {
     
     <hr>
 
-    <label for="fname"><b> Name</b></label>
-    <input type="text" placeholder="Enter  Name" name="user_name" required>
+    <label for="fname"><b> First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="user_fname" required>
+    
+       <label for="lname"><b> Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="user_lname" required>
     
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="user_email" required>
@@ -136,12 +139,7 @@ hr {
 
     <label for="mobile"><b>Mobile</b></label>
     <input type="text" placeholder="Enter Mobile" name="user_mobile" required>
-    
-    <label for="mobile"><b>Enter latitude</b></label>
-    <input type="text" placeholder="Enter latitude" name="user_latitude" required>
-
-    <label for="mobile"><b>Enter longitude</b></label>
-    <input type="text" placeholder="Enter latitude" name="user_longitude" required>
+ 
     
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
