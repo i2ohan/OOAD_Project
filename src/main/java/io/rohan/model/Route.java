@@ -2,13 +2,38 @@ package io.rohan.model;
 
 import java.util.*;
 
+//Singleton pattern
+
 public class Route{
-	static int n=7;
-	public static int[] distances = new int[n];
-	public static int[] nearestSources = new int[n];
-    public static void getRoute() {
-        //int n = 7; // number of vertices in the graph
-        int[][] edges = {{1,2}, {1,6}, {2,3}, {2,6}, {3,6}, {5,4}, {6,5},{3,4},{5,3}}; // edges of the graph
+    private static Route instance;
+    private int n;
+    private int[] distances;
+    private int[] nearestSources;
+    
+    private Route() {
+        n = 9;
+        distances = new int[n];
+        nearestSources = new int[n];
+    }
+    
+    
+    //this method is the only method exposed to outside world, hence made public, and then 
+    public static Route getInstance() {
+        if (instance == null) {
+            instance = new Route();
+        }
+        return instance;
+    }
+    public int[] getDistances() {
+        return distances;
+    }
+    public int[] getNearestSource() {
+        return nearestSources;
+    }
+
+    
+    public void getRoute() {
+        int[][] edges = {{1,2}, {1,6}, {2,3}, {2,6}, {3,6}, {5,4}, {6,5},{3,4},{5,3},{4,7},{7,8}}; // edges of the graph
         
         // create the graph as an adjacency list
         List<Integer>[] graph = new List[n];
@@ -22,11 +47,9 @@ public class Route{
             graph[v].add(u);
         }
         
-        // find the shortest paths from multiple sources and the nearest source for each node
-        int[] sources = {1,5}; // the sources
-        //int[] distances = new int[n];
+        int[] sources = {1,5,7}; // the sources
         
-        bfsMultiSource(graph, sources, distances, nearestSources);
+        bfsMultiSource(graph, sources);
         
         // print the distances and nearest sources
         for (int i = 1; i < n; i++) {
@@ -34,8 +57,7 @@ public class Route{
         }
     }
     
-    static void bfsMultiSource(List<Integer>[] graph, int[] sources, int[] distances, int[] nearestSources) {
-        int n = graph.length;
+    private void bfsMultiSource(List<Integer>[] graph, int[] sources) {
         Arrays.fill(distances, -1); // initialize all distances to -1
         Arrays.fill(nearestSources, -1); // initialize all nearest sources to -1
         Queue<Integer> queue = new LinkedList<>();
@@ -56,6 +78,4 @@ public class Route{
             }
         }
     }
-    
-        
-    }
+}
